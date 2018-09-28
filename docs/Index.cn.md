@@ -11,12 +11,12 @@
 * 教程
   * 应用开发
     * [使用 ASP.NET Core MVC](Tutorials/AspNetCore-Mvc/Part-I.cn.md)
-* Fundamentals
+* 基础知识
   * <a href="Dependency-Injection.cn.md" target="_blank">依赖注入</a>
     * AutoFac 集成
-  * [虚拟文件系统](Virtual-File-System.md)
-  * [本地化](Localization.md)
-  * [异常处理](Exception-Handling.md)
+  * [虚拟文件系统](Virtual-File-System.cn.md)
+  * [本地化](Localization.cn.md)
+  * [异常处理](Exception-Handling.cn.md)
   * 验证
   * 授权
   * 缓存
@@ -33,7 +33,7 @@
   * JSON序列化
   * 邮件
   * GUIDs
-  * 县城
+  * 线程
   * 定时
 * [多租户](Multi-Tenancy.cn.md)
 * 模块开发
