@@ -111,7 +111,7 @@ public class AppModule : AbpModule
 
 ### 模块依赖
 
-在模块化应用程序中，一个模块依赖于另一个模块并不罕见。如果一个Abp模块依赖于另一个模块，它必须声明[DependsOn]属性，如下所示：
+在模块化应用程序中，一个模块依赖于另一个模块并不罕见。如果一个Abp模块依赖于另一个模块，它必须声明``[DependsOn]``属性，如下所示：
 
 ````C#
 [DependsOn(typeof(AbpAspNetCoreMvcModule))]
