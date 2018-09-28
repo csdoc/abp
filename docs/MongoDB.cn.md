@@ -75,7 +75,7 @@ namespace MyCompany.MyProject
 }
 ```
 
-### 添加默认的仓储
+#### 添加默认的仓储
 
 在注入的时候使用 `AddDefaultRepositories()`, ABP就能自动为Db Context中的每一个实体创建 [仓储](Repositories.cn.md)：
 
@@ -95,4 +95,4 @@ services.AddMongoDbContext<MyDbContext>(options =>
 });
 ```
 
-这样你就可以在你的服务中注入并使用`IRepository<TEntity>` 或 `IQueryableRepository<TEntity>`了。
+现在可以在你的服务中注入并使用`IRepository<TEntity>` 或 `IQueryableRepository<TEntity>`了。
