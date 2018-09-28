@@ -1,46 +1,46 @@
-# ABP
+# ABP 框架
 
 [![Build Status](http://vjenkins.dynu.net:5480/job/abp/badge/icon)](http://vjenkins.dynu.net:5480/blue/organizations/jenkins/abp/activity)
 
-This project is the next generation of the [ASP.NET Boilerplate](https://aspnetboilerplate.com/) web application framework. See [the announcement](https://abp.io/blog/abp/Abp-vNext-Announcement).
+这个项目是下一代的 [ASP.NET Boilerplate](https://aspnetboilerplate.com/) Web应用程序框架. [ABP框架介绍](https://abp.io/blog/abp/Abp-vNext-Announcement).
 
-### Status
+### 开发状态
 
-This project is in **very early preview** stage and it's not suggested to use it in a real project. 
+这个项目处于 **早期预览** 阶段, 并不建议在实际项目中使用它.
 
-### Documentation
+### 文档
 
-See the <a href="docs\Index.md" target="_blank">documentation</a>.
+查看ABP框架 <a href="docs\Index.cn.md" target="_blank">文档</a>.
 
-### How to Build
+### 如何编译
 
-- Run the `build-all.ps1`. It will build all the solutions in this repository.
+- 运行 `build-all.ps1`. 它将构建此存储库中的所有解决方案.
 
-### Development
+### 开发环境
 
-#### Pre Requirements
+#### 预先要求
 
 - Visual Studio 2017 15.7.0+
 
-#### Framework
+#### 框架
 
-Framework solution is located under the `framework` folder. It has no external dependency. Just open `Volo.Abp.sln` by Visual Studio and start the development.
+框架解决方案位于`framework`文件夹下. 它没有外部依赖. 只需通过Visual Studio打开`Volo.Abp.sln`就可以开始开发.
 
-#### Modules/Templates
+#### 模块/模板
 
-[Modules](modules/) and [Templates](templates/) have their own solutions and have **local references** to the framework. Unfortunately, Visual Studio has some problems with local references to projects those are out of the solution. As a workaround, you should follow the steps below in order to start developing a module/template:
+[模块](modules/) 和 [模板](templates/) 有自己的解决方案,并有**本地依赖**框架. 不幸的是Visual Studio在本地引用解决方案之外的项目存在一些问题. 解决方法是按照以下步骤开始开发[模块](modules/) 和 [模板](templates/):
 
-- Disable "*Automatically check for missing packages during build in Visual Studio*" in the Visual Studio options.
+- 在Visual Studio选项中禁用"*Automatically check for missing packages during build in Visual Studio*".
 
 ![disable-package-restore-visual-studio](docs/images/disable-package-restore-visual-studio.png)
 
-- When you open a solution, first run `dotnet restore` in the root folder of the solution.
-- When you change a dependency of a project (or any of the dependencies of your projects change their dependencies), run `dotnet restore` again.
+- 当您要打开解决方案时, 请首先在解决方案的根文件夹中运行`dotnet restore`.
+- 当您更改项目的依赖项时(或项目中的任何依赖项更改其依赖项), 请再次运行`dotnet restore`.
 
-### Contribution
+### 贡献
 
-ABP is an open source platform.
+ABP是一个开源平台.
 
-* Open a [new issue](https://github.com/volosoft/volo/issues/new) if you found a bug or if you have a new feature/enhancement idea.
-* Open a pull request if you want to make a development. Please create an issue before a development, so we can discuss it.
-* Contribute to the [documentation](docs/Index.md).
+* 如果您发现了错误或者您有新的功能/改进想法.请打开一个[issue](https://github.com/abpframework/abp/issues/new).
+* 如果要参与开发,请在开发之前创建一个问题,以便我们进行讨论.然后再创建PR.
+* 对[文档](docs/Index.md)进行翻译.
