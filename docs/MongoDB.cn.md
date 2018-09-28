@@ -4,13 +4,13 @@
 
 ### 安装
 
-`Volo.Abp.MongoDB` 是集成MongoDB需要用到的包。安装到你的项目中（如果是多层架构，安装到数据层和基础设施层）:
+ 集成MongoDB需要用到`Volo.Abp.MongoDB`这个包。将它安装到你的项目中（如果是多层架构，安装到数据层和基础设施层）:
 
 ```
 Install-Package Volo.Abp.MongoDB
 ```
 
-然后添加 `AbpMongoDbModule` 依赖到你的 [模块](Module-Development-Basics.cn.md):
+然后添加 `AbpMongoDbModule` 依赖到你的 [模块](Module-Development-Basics.cn.md)中:
 
 ```c#
 using Volo.Abp.MongoDB;
@@ -51,7 +51,7 @@ public class MyDbContext : AbpMongoDbContext
 * 为每一个mongo集合添加一个公共的 `IMongoCollection<TEntity>` 属性。ABP默认使用这些属性创建默认的仓储
 * 重写 `CreateModel` 方法，可以在方法中配置集合（如设置集合在数据库中的名字）
 
-### 将 DbContext 注入到依赖注入中
+### 将 Db Context 注入到依赖注入中
 
 在你的模块中使用 `AddAbpDbContext` 方法将Db Context注入到 [依赖注入](Dependency-Injection.cn.md)系统中.
 
@@ -75,9 +75,9 @@ namespace MyCompany.MyProject
 }
 ```
 
-#### 添加默认的仓储
+### 添加默认的仓储
 
-在注入的时候使用 `AddDefaultRepositories()`, ABP就会为Db Context中的每一个实体自动创建 [仓储](Repositories.cn.md)：
+在注入的时候使用 `AddDefaultRepositories()`, ABP就能自动为Db Context中的每一个实体创建 [仓储](Repositories.cn.md)：
 
 ````C#
 services.AddMongoDbContext<MyDbContext>(options =>
@@ -86,7 +86,7 @@ services.AddMongoDbContext<MyDbContext>(options =>
 });
 ````
 
-这样就会默认为每一个聚合根实体（继承自AggregateRoot的类）创建一个仓储。如果你也想为其他的实体创建仓储，可以将 `includeAllEntities` 设置为 `true`就可以了：
+这样就会默认为每一个聚合根实体（继承自AggregateRoot的类）创建一个仓储。如果你也想为其他的实体创建仓储，将 `includeAllEntities` 设置为 `true`就可以了：
 
 ```c#
 services.AddMongoDbContext<MyDbContext>(options =>
