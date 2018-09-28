@@ -8,6 +8,8 @@
 
 如果阅读其它人翻译的内容发现错别字等翻译问题,可以在群里讨论说明,小问题直接提交commit.
 
+ABP框架的文档可能会发生变化,请watch [Abp](https://github.com/abpframework/abp)仓库,及时同步文档.
+
 目前的文档翻译直接在master上操作,但是不要强行推送分支.
 
 后期代码的修改需要创建PR.经过review后合并.
