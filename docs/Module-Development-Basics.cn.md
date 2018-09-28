@@ -107,7 +107,7 @@ public class AppModule : AbpModule
 
 #### 应用程序关闭
 
-最后，如果要在应用程序正在关闭时执行某些代码，你可以覆盖``OnApplicationShutdown``方法。
+最后，如果要在应用程序关闭时执行某些代码，你可以覆盖``OnApplicationShutdown``方法。
 
 ### 模块依赖
 
