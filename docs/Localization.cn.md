@@ -1,6 +1,6 @@
 ## 本地化
 
-ABP的本地化系统与`Microsoft.Extensions.Localization`包无缝集成,并与[AspnetCore的本地化文档](https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/localization?view=aspnetcore-2.1)兼容. 它添加了一些实用功能和增强功能，使其更易于在实际开发中应用.
+ABP的本地化系统与`Microsoft.Extensions.Localization`无缝集成,并与[AspnetCore的本地化文档](https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/localization?view=aspnetcore-2.1)兼容. 它添加了一些实用功能和增强功能，使其更易于在实际开发中应用.
 
 ### Volo.Abp.Localization Package
 
