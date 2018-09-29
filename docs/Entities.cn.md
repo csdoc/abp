@@ -164,12 +164,12 @@ public class OrderLine : Entity
 
 虽然这个示例可能无法实现聚合根的所有最佳实践，但它仍然遵循良好的实践：
 
-* `Order`有一个公共的构造函数，它需要 **最小要求** 来构造一个“订单”实例。因此，在没有`Id`和`referenceNo`的时候是无法创建订单的。**protected/private**的构造函数只有从数据库读取对象时 **反序列化** 才需要。
+* `Order`有一个公共的构造函数，它需要 **minimal requirements** 来构造一个“订单”实例。因此，在没有`Id`和`referenceNo`的时候是无法创建订单的。**protected/private**的构造函数只有从数据库读取对象时 **反序列化** 才需要。
 * `OrderLine`的构造函数是internal的，所以它只能由领域层来创建。在`Order.AddProduct`这个方法的内部被使用。
 * `Order.AddProduct`实现了业务规则将商品添加到订单中
-* 所有属性都有`protected`的setters。这是为了防止实体从实体外部任意改变。因此，在不向订单中添加新产品的情况下设置 `TotalItemCount`将是危险的。它的值由`AddProduct`方法维护。
+* 所有属性都有`protected`的set。这是为了防止实体在实体外部任意改变。因此，在没有向订单中添加新产品的情况下设置 `TotalItemCount`将是危险的。它的值由`AddProduct`方法维护。
 
-ABP不强迫你应用任何DDD规则或模式。然而，当你准备应用的DDD规则或模式时候,ABP会让这变的可能而且更简单。文档同样遵循这个原则。
+ABP不强制你应用任何DDD规则或模式。但是，当你准备应用的DDD规则或模式时候,ABP会让这变的可能而且更简单。文档同样遵循这个原则。
 
 #### 带有组合键的聚合根
 
