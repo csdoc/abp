@@ -4,7 +4,7 @@ ABP的本地化系统与`Microsoft.Extensions.Localization`无缝集成,并与[A
 
 ### Volo.Abp.Localization Package
 
-> 启动模板默认已经安装了此nuget包,所以在大多数情况下,您不需要手动安装它.
+> 启动模板默认已经安装了此nuget包,所以在大多数情况下,你不需要手动安装它.
 
 Volo.Abp.Localization是本地化系统的核心包. 使用程序包管理器控制台（PMC）将其安装到项目中：
 
