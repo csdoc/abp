@@ -59,7 +59,7 @@ public class UserRole : Entity
 
 你还需要在 **object-to-relational mapping**（ORM）中配置实体的键。
 
-> 复合主键在仓储中有限制。由于不知道Id属性，所以对于这些实体，不能使用`IRepository<TEntity, TKey>`。但是，可以使用`IRepository<TEntity>`。更多信息请参见[仓储](Respositoryies.cn.md)的文档。
+> 复合主键在仓储中有限制。由于不知道Id属性，所以对于这些实体，不能使用`IRepository<TEntity, TKey>`。但是，可以使用`IRepository<TEntity>`。更多信息请参见[仓储](Repositories.cn.md)的文档。
 
 ### 聚合根
 
@@ -67,7 +67,7 @@ public class UserRole : Entity
 
 `AggregateRoot`类继承自`Entity`类，所以默认有`Id`这个属性
 
-> 值得注意的是 ABP 会默认为聚合根创建仓储，当然，ABP也可以为所有的实体创建仓储，详情参见[仓储](Respositoryies.cn.md)。
+> 值得注意的是 ABP 会默认为聚合根创建仓储，当然，ABP也可以为所有的实体创建仓储，详情参见[仓储](Repositories.cn.md)。
 
 ABP不强制你使用聚合根，实际上你可以使用上面定义的`Entity`类，当然，如果你想实现DDD并且创建聚合跟，这里有一些最佳实践仅供参考：
 
