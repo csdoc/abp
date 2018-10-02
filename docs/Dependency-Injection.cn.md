@@ -97,7 +97,7 @@ public class TaxCalculator : ITransientDependency
 * ``TryRegister``: 设置``true``则只注册以前未注册的服务。使用IServiceCollection的TryAdd ... 扩展方法。
 * ``ReplaceServices``: 设置``true``则替换之前已经注册过的服务。使用IServiceCollection的Replace扩展方法。
 
-Example:
+示例:
 
 ````C#
 [Dependency(ServiceLifetime.Transient, ReplaceServices = true)]
