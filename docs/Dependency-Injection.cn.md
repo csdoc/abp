@@ -225,7 +225,6 @@ public class MyService : ITransientDependency
 #### 从IServiceProvider解析服务
 
 您可能希望直接从``IServiceProvider``解析服务。在这种情况下，您可以将``IServiceProvider``注入到您的类并使用``GetService``方法，如下所示：
-You may want to resolve a service directly from ``IServiceProvider``. In that case, you can inject IServiceProvider into your class and use ``GetService`` method as shown below:
 
 ````C#
 public class MyService : ITransientDependency
