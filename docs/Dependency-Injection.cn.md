@@ -11,7 +11,7 @@ public class BlogModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        //register dependencies here
+        //在此处注入依赖项
     }
 }
 ````
