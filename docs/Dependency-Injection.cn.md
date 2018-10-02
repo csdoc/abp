@@ -74,7 +74,6 @@ public class BlogPostAppService : ApplicationService
 #### 依赖接口
 
 如果实现这些接口，则会自动将类注册到依赖注入：
-If you implement these interfaces, your class is registered to dependency injection automatically:
 
 * ``ITransientDependency`` 注册为transient。
 * ``ISingletonDependency`` 注册为singleton。
