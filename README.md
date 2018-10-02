@@ -2,7 +2,7 @@
 
 [![Build Status](http://vjenkins.dynu.net:5480/job/abp/badge/icon)](http://vjenkins.dynu.net:5480/blue/organizations/jenkins/abp/activity)
 
-这个项目是下一代的 [ASP.NET Boilerplate](https://aspnetboilerplate.com/) Web应用程序框架. [ABP框架介绍(英文)](https://abp.io/blog/abp/Abp-vNext-Announcement) 或 [ABP框架介绍(中文)](docs/Abp-vNext-Announcement.cn.md).
+这个项目是下一代的 [ASP.NET Boilerplate](https://aspnetboilerplate.com/) Web应用程序框架. [ABP框架介绍(英文)](https://abp.io/blog/abp/Abp-vNext-Announcement) 或 [ABP框架介绍(中文)](docs/Blog-Posts/2018-09-24-Announcement/Post.cn.md).
 
 ### 开发状态
 
