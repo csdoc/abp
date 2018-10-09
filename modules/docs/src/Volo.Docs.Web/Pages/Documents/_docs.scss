@@ -1,4 +1,6 @@
-
+body {
+    position: relative;
+}
 .docs-page {
     background: rgb(245, 247, 249);
 
@@ -9,10 +11,11 @@
     *:hover > .anchorjs-link {
         margin-left: -1.125em !important;
         transition: color .25s linear;
+        color: gray;
     }
 
     .anchorjs-link:hover {
-        color: #2500AD;
+        color: #007bff;
         text-decoration: none;
     }
 
@@ -32,7 +35,7 @@
                 background: none;
                 padding-left: 36px;
                 width: 100%;
-                background: #eeeff2;
+                background: #e9ecef;
                 border: 0;
 
                 &:focus, &:active, &:hover, &:visited {
@@ -46,14 +49,19 @@
                 margin: .5rem 0 1rem;
 
                 .version-select {
-                    padding: 1px;
                     border-radius: 8px;
+
+                    .input-group-text {
+                        border: 0;
+                    }
 
                     select.form-control {
                         line-height: 1;
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
                         padding: .3em .5em .5em;
+                        border: 0;
+
 
                         &:focus, &:active, &:hover, &:visited {
                             box-shadow: none;
@@ -89,13 +97,15 @@
             }
 
             .docs-tree-list {
+                height: 100vh;
+
                 > ul {
                     display: block;
-                    height: calc(100vh - 190px);
+                    height: calc(100vh - 210px);
                 }
 
                 ul {
-                    font-size: .913em;
+                    font-size: .935em;
                     list-style: none;
                     padding: 0 1rem;
                     margin: 0;
@@ -107,47 +117,9 @@
                         width: 100%;
                         position: relative;
 
-                        label {
-                            margin: 0;
-
-                            &.tree-toggle {
-                                transition: .3s;
-                                display: inline-block;
-                                width: 18px;
-                                height: 18px;
-                                text-align: center;
-                                padding: 0;
-                                line-height: 1;
-                                border-radius: 50%;
-                                margin-right: 4px;
-                                position: absolute;
-                                left: 2px;
-                                top: 8px;
-                                color: #aaa;
-                                cursor: pointer;
-
-                                &:hover {
-                                    color: #000;
-                                }
-
-                                .plus-icon {
-                                    font-size: .85em;
-                                }
-
-                                &:not(.last-link).opened {
-                                    transform: rotate(-90deg);
-                                    color: #000;
-                                }
-
-                                &.last-link {
-                                    top: 9px;
-                                    color: #aaa;
-                                }
-                            }
-                        }
 
                         a {
-                            color: #222;
+                            color: #999;
                             font-weight: 700;
                             padding: 7px 0;
                             display: block;
@@ -156,17 +128,41 @@
                             &:hover {
                                 color: #000;
                             }
+
+                            &.last-link {
+                                top: 11px;
+                                color: #aaa;
+                            }
+                        }
+
+                        span.tree-toggle {
+                            color: #999;
+                            padding: 7px 0;
+                            display: block;
+                            border-bottom: 1px solid #eeeff3;
+                        }
+
+                        .plus-icon {
+                            font-size: .85em;
+                            transition: .3s;
+                            width: 18px;
+                            height: 18px;
+                            text-align: center;
+                            padding: 0;
+                            line-height: 1;
+                            border-radius: 50%;
+                            margin-right: 4px;
+                            position: absolute;
+                            left: 2px;
+                            top: 11px;
+                            color: #aaa;
+                            cursor: pointer;
                         }
 
                         ul {
                             padding: 0;
 
                             li {
-                                label {
-                                    &.tree-toggle {
-                                        top: 7px;
-                                    }
-                                }
 
                                 a {
                                     font-weight: 400;
@@ -186,8 +182,23 @@
 
                         &.selected-tree {
                             > a {
-                                color: #38003c;
-                                font-weight: bold;
+                                color: #000;
+                                transition: .4s;
+                            }
+
+                            > span {
+                                .fa {
+                                    transform: rotate(90deg);
+                                    color: #007bff;
+                                }
+                            }
+
+                            &.last-link {
+                                > span {
+                                    .fa {
+                                        transform: rotate(0deg);
+                                    }
+                                }
                             }
                         }
                     }
@@ -256,7 +267,7 @@
         }
 
         .docs-text-field {
-            padding: 0 2rem 2rem;
+            padding: 2rem;
         }
 
         article.docs-body {
@@ -309,52 +320,55 @@
     }
 
     .docs-page-index {
-        position: relative;
+        min-height: 100vh;
+
+        #scroll-index {
+            max-height: 100vh;
+        }
 
         .docs-inner-anchors {
             position: fixed;
             top: 0px;
-            max-width: 270px;
+            /* max-width: 270px; */
             padding: 10px;
             font-size: .90em;
-            height: 100vh;
-
+            /* height: 100vh; */
             .navbar {
                 .nav-pills {
-                    font-size: .95em;
-                    margin-left: 18px;
-                    border-left: 1px solid #e5e5e5;
+                    font-size: .92em;
+                    margin-left: 15px;
+                    border-left: 1px solid #eee;
 
                     .nav-link {
-                        padding: .2rem 0rem .2rem 1rem;
+                        padding: 3px 14px 4px;
                         color: #aaa;
-                        line-height: 1.1;
+                        line-height: 1.2;
                         position: relative;
-                        border-left: 3px solid transparent;
+                        border-left: 1px solid #eee;
                         border-radius: 0;
-                        margin-left: -2px;
-                        margin-top: 2px;
-                        margin-bottom: 2px;
+                        margin-left: -1px;
+                        margin-top: 1px;
+                        margin-bottom: 1px;
                         transition: .2s;
 
                         &.active {
+                            border-left: 2px solid #007bff;
                             background: none;
-                            color: #000;
-                            border-color: #000;
+                            color: #007bff;
                         }
                     }
 
                     .nav-pills {
                         .nav-link {
                             &.active {
-                                color: #000;
+                                color: #007bff;
                             }
                         }
 
                         .nav-pills {
                             .nav-link {
                                 &.active {
-                                    color: #000;
+                                    color: #007bff;
                                 }
                             }
                         }
@@ -362,15 +376,13 @@
                 }
             }
 
-            > .navbar {
+            .index-scroll {
+                margin-left: -30px;
             }
 
             .docs-anchors-wrapper {
                 max-width: 300px;
                 float: left;
-            }
-
-            .inner-title {
             }
         }
 
@@ -397,7 +409,7 @@
     .docs-page {
         .docs-sidebar {
             &.dark-sidebar {
-                background: #222;
+                background: #191919;
 
                 .docs-sidebar-wrapper {
 
@@ -438,39 +450,62 @@
                     .docs-tree-list {
                         ul {
                             li {
-                                label {
-                                    &.tree-toggle {
-                                        color: #666;
 
-                                        &:hover {
-                                            color: #fff;
-                                        }
-
-                                        .plus-icon {
-                                        }
-
-                                        &:not(.last-link).opened {
-                                            color: #fff;
-                                        }
-
-                                        &.last-link {
-                                            color: #666;
-                                        }
-                                    }
-                                }
 
                                 a {
-                                    color: #ddd;
+                                    color: #aaa;
                                     border-bottom: 1px solid #333;
 
                                     &:hover {
                                         color: #fff;
                                     }
+
+                                    .plus-icon {
+                                        font-size: .85em;
+                                        transition: .3s;
+                                        width: 18px;
+                                        height: 18px;
+                                        text-align: center;
+                                        padding: 0;
+                                        line-height: 1;
+                                        border-radius: 50%;
+                                        margin-right: 4px;
+                                        position: absolute;
+                                        left: 2px;
+                                        top: 11px;
+                                        color: #aaa;
+                                        cursor: pointer;
+
+                                        &.last-link {
+                                            top: 11px;
+                                        }
+                                    }
                                 }
+
+
+                                span.tree-toggle {
+                                    color: #555;
+                                    padding: 7px 0;
+                                    display: block;
+                                    border-bottom: 1px solid #333;
+                                }
+
 
                                 &.selected-tree {
                                     > a {
                                         color: #fff;
+                                        transition: .4s;
+
+                                        span {
+                                            .fa {
+                                                color: #fff;
+                                            }
+
+                                            &:not(.last-link) .fa {
+                                                transform: rotate(90deg);
+                                                color: #fff;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -624,8 +659,7 @@
         }
     }
 }
-
-
+ 
 
 .for-mobile {
     display: none;
@@ -634,10 +668,7 @@
 .for-desktop {
     display: inline-block;
 }
-
-
-
-
+ 
 pre[class*="language-"] {
     padding: 1.4em 2em !important;
     margin: 15px 0 25px !important;
@@ -651,4 +682,29 @@ code {
     background-color: #f0f1f3;
     border-radius: 3px;
     color: #28a745;
+}
+pre {
+    code {
+        padding: 0;
+    }
+
+    .token.keyword {
+        color: #569cd6;
+    }
+
+    .token.atrule, .token.attr-value, .token.function, .token.class-name {
+        color: #d69d85;
+    }
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #191919 !important;
+}
+
+
+div.code-toolbar > .toolbar span {
+    cursor: default;
+}
+
+div.code-toolbar > .toolbar a {
+    cursor: copy;
 }

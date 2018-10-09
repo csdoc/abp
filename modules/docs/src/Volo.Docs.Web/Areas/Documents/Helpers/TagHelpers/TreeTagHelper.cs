@@ -9,19 +9,13 @@ namespace Volo.Docs.Areas.Documents.Helpers.TagHelpers
     [HtmlTargetElement("ul", Attributes = "root-node")]
     public class TreeTagHelper : TagHelper
     {
-        private const string LiItemTemplate = @"<li class='{6}'>
-                                                  <label class='tree-toggle {3}'>
-                                                      <span class='plus-icon'>
-                                                            <i class='fa fa-{4}'></i>
-                                                      </span>
-                                                  </label>
-                                                  <a href='{0}' class='{5}'>{1}</a>
-                                                  {2}
-                                              </li>";
+        private const string LiItemTemplateWithLink = @"<li class='{0}'><span class='plus-icon'><i class='fa fa-{1}'></i></span>{2}{3}</li>";
 
-        private const string UlItemTemplate = @"<ul class='nav nav-list tree' style='{1}'>
-                                                    {0}
-                                                </ul>";
+        private const string ListItemAnchor = @"<a href='{0}' class='{1}'>{2}</a>";
+
+        private const string ListItemSpan = @"<span class='{0}'>{1}</span>";
+
+        private const string UlItemTemplate = @"<ul class='nav nav-list tree' style='{1}'>{0}</ul>";
 
         [HtmlAttributeName("root-node")]
         public NavigationNode RootNode { get; set; }
@@ -97,24 +91,51 @@ namespace Volo.Docs.Areas.Documents.Helpers.TagHelpers
         {
             var anchorCss = node.Path.IsNullOrEmpty() ? "tree-toggle" : "";
             var isNodeSelected = node.IsSelected(SelectedDocumentName);
-
+            var listItemCss = node.HasChildItems ? "nav-header" : "last-link";
             if (isNodeSelected)
             {
-                anchorCss += " opened";
+                listItemCss += " selected-tree";
             }
 
-            var normalizedPath = node.Path != null && node.Path.EndsWith("." + ProjectFormat)
-                ? node.Path.Left(node.Path.Length - ProjectFormat.Length - 1)
-                : node.Path;
+            string listInnerItem;
+            if (node.Path.IsNullOrEmpty() && node.IsLeaf)
+            {
+                listInnerItem = string.Format(ListItemSpan, anchorCss, node.Text.IsNullOrEmpty() ? "?" : node.Text);
+            }
+            else
+            {
+                listInnerItem = string.Format(ListItemAnchor, NormalizePath(node.Path, node.HasChildItems), anchorCss, node.Text.IsNullOrEmpty() ? "?" : node.Text);
+            }
 
-            return string.Format(LiItemTemplate,
-                node.Path.IsNullOrEmpty() ? "#" : "/documents/" + ProjectName + "/" + Version + "/" + normalizedPath,
-                node.Text.IsNullOrEmpty() ? "?" : node.Text,
-                content,
-                node.HasChildItems ? "nav-header" : "last-link",
-                node.HasChildItems ? "chevron-down" : "long-arrow-right",
-                anchorCss,
-                isNodeSelected ? "selected-tree" : "");
+            return string.Format(LiItemTemplateWithLink,
+                listItemCss,
+                node.HasChildItems ? "chevron-right" : "long-arrow-right",
+                listInnerItem,
+                content);
+        }
+
+        private string NormalizePath(string path, bool hasChildItems)
+        {
+            var pathWithoutFileExtension = RemoveFileExtensionFromPath(path);
+
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return "javascript:;";
+            }
+
+            return  "/documents/" + ProjectName + "/" + Version + "/" + pathWithoutFileExtension;
+        }
+
+        private string RemoveFileExtensionFromPath(string path)
+        {
+            if (path == null)
+            {
+                return null;
+            }
+
+            return path.EndsWith("." + ProjectFormat)
+                 ? path.Left(path.Length - ProjectFormat.Length - 1)
+                 : path;
         }
 
     }

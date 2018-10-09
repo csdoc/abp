@@ -1,0 +1,15 @@
+﻿{
+  "culture": "tr",
+  "texts": {
+    "Documents": "Dökümanlar",
+    "BackToWebsite": "Ana sayafaya dön",
+    "Version": "Versiyon",
+    "Edit": "Düzenle",
+    "InThisDocument": "Bu dökümanda",
+    "GoToTop": "En üste çık",
+    "Projects": "Proje(ler)",
+    "NoProjectWarning": "Hiç proje yok!",
+    "DocumentNotFound": "Aradığınız döküman bulunamadı!",
+    "NavigationDocumentNotFound": "Bu döküman için menü bulunamadı!"
+  }
+}

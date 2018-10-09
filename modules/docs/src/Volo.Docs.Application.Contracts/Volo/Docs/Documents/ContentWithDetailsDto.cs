@@ -27,6 +27,8 @@ namespace Volo.Docs.Documents
         public string FileName { get; set; }
 
         public ProjectDto Project { get; set; }
+
+        public bool SuccessfullyRetrieved { get; set; }
     }
 
     public class NavigationNode
@@ -40,10 +42,12 @@ namespace Volo.Docs.Documents
         [JsonProperty("items")]
         public List<NavigationNode> Items { get; set; }
 
+        public bool IsLeaf => !HasChildItems;
+
         public bool HasChildItems => Items != null && Items.Any();
 
         public bool IsEmpty => Text == null && Path == null;
-         
+
         public bool IsSelected(string documentName)
         {
             if (documentName == null)
@@ -51,7 +55,7 @@ namespace Volo.Docs.Documents
                 return false;
             }
 
-            if (string.Equals(documentName, Path, StringComparison.InvariantCultureIgnoreCase))
+            if (string.Equals(documentName, Path, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
@@ -71,7 +75,6 @@ namespace Volo.Docs.Documents
 
             return false;
         }
-
     }
 
     public class NavigationWithDetailsDto : DocumentWithDetailsDto
@@ -81,6 +84,12 @@ namespace Volo.Docs.Documents
 
         public void ConvertItems()
         {
+            if (!SuccessfullyRetrieved || Content.IsNullOrEmpty())
+            {
+                RootNode = new NavigationNode();
+                return;
+            }
+
             try
             {
                 RootNode = JsonConvert.DeserializeObject<NavigationNode>(Content);

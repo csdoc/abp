@@ -64,17 +64,17 @@ namespace MyCompanyName.MyProjectName.DemoApp
             {
                 context.Services.Configure<VirtualFileSystemOptions>(options =>
                 {
-                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, "..\\..\\src\\MyCompanyName.MyProjectName.Web"));
-                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, "..\\..\\src\\MyCompanyName.MyProjectName.Domain"));
-                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, "..\\..\\src\\MyCompanyName.MyProjectName.Application"));
-                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, "..\\..\\src\\MyCompanyName.MyProjectName.Application.Contracts"));
+                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}MyCompanyName.MyProjectName.Web", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}MyCompanyName.MyProjectName.Domain", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}MyCompanyName.MyProjectName.Application", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPyhsical<MyProjectNameApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}MyCompanyName.MyProjectName.Application.Contracts", Path.DirectorySeparatorChar)));
                 });
             }
 
             context.Services.AddSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc("v1", new Info { Title = "Blogging API", Version = "v1" });
+                    options.SwaggerDoc("v1", new Info { Title = "MyProjectName API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                 });
 

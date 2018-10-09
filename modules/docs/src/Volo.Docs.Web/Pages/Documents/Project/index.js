@@ -13,7 +13,12 @@
             var gotoFilteredDocumentIfThereIsOnlyOne = function () {
                 var $links = getShownDocumentLinks();
                 if ($links.length === 1) {
-                    window.location = $links.first().attr("href");
+                    var url = $links.first().attr("href");
+                    if (url === "javascript:;") {
+                        return;
+                    }
+
+                    window.location = url;
                 }
             };
 
@@ -59,9 +64,9 @@
                     gotoFilteredDocumentIfThereIsOnlyOne();
                 }
             });
-        }
+        };
 
-        var addAncharTags = function (container) {
+        var initAnchorTags = function (container) {
             anchors.options = {
                 placement: 'left'
             };
@@ -74,7 +79,7 @@
 
         initNavigationFilter("sidebar-scroll");
 
-        addAncharTags(".docs-page .docs-body");
+        initAnchorTags(".docs-page .docs-body");
     });
 
 })(jQuery);
